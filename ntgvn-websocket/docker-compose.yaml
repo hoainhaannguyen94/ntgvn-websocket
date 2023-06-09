@@ -1,0 +1,24 @@
+version: "3"
+services:
+    now-mongo:
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+        networks:
+            - now-network
+        restart: always
+    now-node:
+        image: nos-node:latest
+        volumes:
+            - d:/Debug/now-node/app:/app/
+        ports:
+            - "8080:8080"
+            - "8443:8443"
+        networks:
+            - now-network
+        depends_on:
+            - now-mongo
+        restart: always
+networks:
+    now-network:
+        external: true

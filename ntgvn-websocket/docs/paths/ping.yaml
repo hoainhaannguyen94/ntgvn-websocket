@@ -1,0 +1,20 @@
+get:
+  tags:
+    - ping
+  summary: Ping
+  description: ""
+  operationId: ping
+  parameters:
+    - name: domain
+      in: header
+      description: Domain
+      required: true
+      schema:
+        type: string
+  responses:
+    200:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/ping.yaml"

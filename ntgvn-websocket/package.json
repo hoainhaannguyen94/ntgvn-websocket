@@ -1,0 +1,50 @@
+{
+  "name": "ntgvn-websocket",
+  "version": "1.0.0",
+  "description": "NTGVN WebSocket",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs",
+    "docker_network": "docker network create ntgvn-network",
+    "docker_mongo": "docker run -d --network ntgvn-network -p 27017:27017 --name ntgvn-mongo mongo:latest",
+    "docker_redis": "docker run -d --network ntgvn-network -p 6379:6379 --name ntgvn-redis redis:latest",
+    "docker_run": "docker run -d -p 80:80 -p 443:443 --network ntgvn-network -v d:/Debug/ntgvn-websocket/app:/app/ --name ntgvn-websocket-debug ntgvn-websocket:latest",
+    "docker_build": "docker build . -t ntgvn-websocket:latest",
+    "docker_compose": "docker-compose up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoainhaannguyen94/ntgvn-websocket.git"
+  },
+  "keywords": [
+    "ntgvn-websocket"
+  ],
+  "author": "hoainhaanguyen@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoainhaannguyen94/ntgvn-websocket/issues"
+  },
+  "homepage": "https://github.com/hoainhaannguyen94/ntgvn-websocket#readme",
+  "dependencies": {
+    "@steedos/odata-v4-mongodb": "^2.4.14",
+    "axios": "^1.4.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.1.5",
+    "jsonwebtoken": "^9.0.0",
+    "luxon": "^3.3.0",
+    "mongodb": "^5.3.0",
+    "redis": "^4.6.6",
+    "rxjs": "^7.8.1",
+    "url": "^0.11.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "pm2": "^5.3.0"
+  }
+}
