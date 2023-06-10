@@ -55,5 +55,7 @@ httpServer.listen({ port: HTTP_PORT, hostname: HOSTNAME });
 
 // CLEAN UP
 ['exit', 'SIGINT', 'SIGUSR1', 'SIGUSR2', 'uncaughtException', 'SIGTERM'].forEach((eventType) => {
-    process.on(eventType, cleanUp.bind(null, eventType));
+    process.on(eventType, eventDetails => {
+        cleanUp.bind(null, eventType, eventDetails)();
+    });
 });
