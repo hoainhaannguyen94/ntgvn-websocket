@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.mjs",
     "docker_network": "docker network create ntgvn-network",
-    "docker_ubuntu": "docker run --network ntgvn-network --name ntgvn-ubuntu -p 80:8080 -p 443:8443 -p 22:22 -itd ubuntu:latest",
+    "docker_ubuntu": "docker run --name ntgvn-ubuntu --network ntgvn-network -p 80:8080 -p 443:8443 -p 22:22 -itd ubuntu:latest",
     "docker_mongo": "docker run -d --network ntgvn-network -p 27017:27017 --name ntgvn-mongo mongo:latest",
     "docker_redis": "docker run -d --network ntgvn-network -p 6379:6379 --name ntgvn-redis redis:latest",
     "docker_ntgvn-websocket-build": "docker build . -t ntgvn-websocket:latest",
