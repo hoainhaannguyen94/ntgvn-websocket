@@ -1,4 +1,1 @@
-.gitignore
-.dockerignore
 node_modules
-package-lock.json

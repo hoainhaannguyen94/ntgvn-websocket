@@ -1,24 +1,24 @@
 version: "3"
 services:
-    now-mongo:
+    ntgvn-mongo:
         image: mongo:latest
         ports:
             - "27017:27017"
         networks:
-            - now-network
+            - ntgvn-network
         restart: always
-    now-node:
-        image: nos-node:latest
+    ntgvn-websocket:
+        image: ntgvn-websocket:latest
         volumes:
-            - d:/Debug/now-node/app:/app/
+            - d:/Debug/ntgvn-websocket/app:/app/
         ports:
             - "8080:8080"
             - "8443:8443"
         networks:
-            - now-network
+            - ntgvn-network
         depends_on:
-            - now-mongo
+            - ntgvn-mongo
         restart: always
 networks:
-    now-network:
+    ntgvn-network:
         external: true

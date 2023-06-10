@@ -7,11 +7,12 @@ import helmet from 'helmet';
 import path from 'node:path';
 import { domainChecker } from './middlewares/domain.checker.mjs';
 import { rateLimitRequest } from './middlewares/request-limiter.mjs';
-import { PingRouter } from './api/ping/ping.controller.mjs';
 import { HTTP_PORT, HOSTNAME, NODE_ENV } from './settings/global.setting.mjs';
 import { Logger } from './utils/logger.mjs';
 import { cleanUp } from './clean-up.mjs';
 import { SocketServer, SocketClients, createSocketServer } from './socket/socket.mjs';
+import { PingRouter } from './api/ping/ping.controller.mjs';
+import { SignalRouter } from './api/signal/signal.controller.mjs';
 
 const __dirname = path.resolve();
 
@@ -27,7 +28,8 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(helmet());
 app.use(express.static(__dirname + '/public'));
 
-app.use('/v1/api/ping', rateLimitRequest(), domainChecker, PingRouter);
+app.use('/websocket/api/v1/ping', rateLimitRequest(), domainChecker, PingRouter);
+app.use('/websocket/api/v1/signal', rateLimitRequest(), domainChecker, SignalRouter);
 
 app.use('/', (req, res) => {
     Logger.log('error', `[${req.ip}] ${req.method} ${req.originalUrl} 404`);
