@@ -1,11 +1,12 @@
 {
   "name": "ntgvn-websocket",
   "version": "1.0.0",
+  "type": "module",
   "description": "NTGVN WebSocket",
-  "main": "index.mjs",
+  "main": "server.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.mjs",
+    "start": "node server.mjs",
     "docker_network": "docker network create ntgvn-network",
     "docker_ubuntu": "docker run --name ntgvn-ubuntu --network ntgvn-network -p 80:8080 -p 443:8443 -p 22:22 -itd ubuntu:latest",
     "docker_mongo": "docker run -d --network ntgvn-network -p 27017:27017 --name ntgvn-mongo mongo:latest",
