@@ -1,5 +1,5 @@
-import { DOMAIN } from '../settings/global.setting.mjs';
-import { Logger } from '../utils/logger.mjs';
+import { DOMAIN } from '../config/global.mjs';
+import { Logger } from '../utils/logger/logger.mjs';
 
 const domainChecker = (req, res, next) => {
     const headers = req.headers;

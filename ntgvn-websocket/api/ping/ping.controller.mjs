@@ -1,5 +1,5 @@
 import express from 'express';
-import { resHanlder } from '../../utils/res.mjs';
+import { resHanlder } from '../../utils/request/res.mjs';
 
 const router = express.Router();
 router

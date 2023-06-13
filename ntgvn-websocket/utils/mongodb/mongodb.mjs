@@ -1,6 +1,6 @@
-import { ENABLE_MONGO, MONGO_URI, MONGO_CLIENT_OPTIONS, MONGO_DBNAME } from '../settings/mongo.setting.mjs';
+import { ENABLE_MONGO, MONGO_URI, MONGO_CLIENT_OPTIONS, MONGO_DBNAME } from '../../config/mongo.mjs';
 
-import { Logger } from '../utils/logger.mjs';
+import { Logger } from '../../utils/logger/logger.mjs';
 import { MongoClient, ObjectId } from 'mongodb';
 
 const MONGO_CLIENT = !!ENABLE_MONGO ? new MongoClient(MONGO_URI, { ...MONGO_CLIENT_OPTIONS }) : null;

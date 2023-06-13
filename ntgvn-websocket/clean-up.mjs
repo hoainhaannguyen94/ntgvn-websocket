@@ -1,6 +1,6 @@
-import { Logger } from './utils/logger.mjs';
-import { ENABLE_MONGO } from './settings/mongo.setting.mjs';
-import { closeMongo, MONGO_CLIENT } from './mongodb/mongodb.mjs';
+import { Logger } from './utils/logger/logger.mjs';
+import { ENABLE_MONGO } from './config/mongo.mjs';
+import { closeMongo, MONGO_CLIENT } from './utils/mongodb/mongodb.mjs';
 
 const cleanUp = async (eventType, eventDetails) => {
     Logger.log('info', `Server is stop from event::${eventType}`, eventDetails);

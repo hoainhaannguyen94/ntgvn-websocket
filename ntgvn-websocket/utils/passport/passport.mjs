@@ -1,4 +1,4 @@
-import { PhoneNumberStrategy } from './phone-number.strategy.mjs';
+import { PhoneNumberStrategy } from './phone-number-strategy.mjs';
 
 export class Authenticator {
     strategies = new Map();
@@ -16,4 +16,5 @@ export class Authenticator {
 }
 
 export const Passport = new Authenticator();
+
 Passport.use('phone-number', new PhoneNumberStrategy());

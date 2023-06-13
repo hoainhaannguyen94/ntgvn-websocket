@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { DateTime } from 'luxon';
-import { JWT_SECRET, JWT_ALGORITHM, JWT_EXPIRATION_TIME } from '../settings/jwt.setting.mjs';
+import { JWT_SECRET, JWT_ALGORITHM, JWT_EXPIRATION_TIME } from '../../config/jwt.mjs';
 
 const generateAccessToken = req => {
     try {

@@ -1,5 +1,5 @@
-import { generateAccessToken } from '../../jwt/jwt.mjs';
-import { emitData } from '../../socket/socket.mjs';
+import { generateAccessToken } from '../../utils/jwt/jwt.mjs';
+import { emitData } from '../../utils/socket/socket.mjs';
 
 const subscribe = async req => {
     try {

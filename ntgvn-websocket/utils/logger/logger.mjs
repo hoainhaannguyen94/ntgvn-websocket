@@ -1,4 +1,4 @@
-import { ENABLE_LOGGER_CONSOLE, ENABLE_LOGGER_FILE } from '../settings/logger.setting.mjs';
+import { ENABLE_LOGGER_CONSOLE, ENABLE_LOGGER_FILE } from '../../config/logger.mjs';
 import { createLogger, transports, format } from 'winston';
 
 const Logger = createLogger({
@@ -10,7 +10,7 @@ const Logger = createLogger({
         new transports.File({
             silent: !ENABLE_LOGGER_FILE,
             level: 'error',
-            filename: 'logs/server.log'
+            filename: 'log/server.log'
         })
     ]
 });

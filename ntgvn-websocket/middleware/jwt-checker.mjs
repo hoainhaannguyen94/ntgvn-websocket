@@ -1,7 +1,7 @@
-import { Logger } from '../utils/logger.mjs';
-import { MongoCollection } from '../mongodb/mongodb.mjs';
+import { Logger } from '../utils/logger/logger.mjs';
+import { MongoCollection } from '../utils/mongodb/mongodb.mjs';
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET, JWT_ALGORITHM } from '../settings/jwt.setting.mjs';
+import { JWT_SECRET, JWT_ALGORITHM } from '../config/jwt.mjs';
 import { DateTime } from 'luxon';
 
 const UserCollection = MongoCollection('user');

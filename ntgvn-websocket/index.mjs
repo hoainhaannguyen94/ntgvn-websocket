@@ -5,12 +5,12 @@ import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import path from 'node:path';
-import { domainChecker } from './middlewares/domain.checker.mjs';
-import { rateLimitRequest } from './middlewares/request-limiter.mjs';
-import { HTTP_PORT, HOSTNAME, NODE_ENV } from './settings/global.setting.mjs';
-import { Logger } from './utils/logger.mjs';
+import { domainChecker } from './middleware/domain-checker.mjs';
+import { rateLimitRequest } from './middleware/request-limiter.mjs';
+import { HTTP_PORT, HOSTNAME, NODE_ENV } from './config/global.mjs';
+import { Logger } from './utils/logger/logger.mjs';
 import { cleanUp } from './clean-up.mjs';
-import { SocketServer, SocketClients, createSocketServer } from './socket/socket.mjs';
+import { SocketServer, SocketClients, createSocketServer } from './utils/socket/socket.mjs';
 import { PingRouter } from './api/ping/ping.controller.mjs';
 import { SignalRouter } from './api/signal/signal.controller.mjs';
 
