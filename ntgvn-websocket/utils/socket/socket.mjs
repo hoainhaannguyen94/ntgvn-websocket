@@ -5,15 +5,14 @@ let SocketServer = null;
 let SocketClients = null;
 
 const createSocketServer = (server, transports = ['websocket', 'polling']) => {
-    const socketServer = new Server(server, {
+    SocketServer = new Server(server, {
         transports: transports
     });
-    SocketServer = socketServer;
     SocketClients = new Map();
 }
 
-const emitData = async (key, data) => {
-    SocketServer.emit(key, {
+const emitData = (key, data) => {
+    return SocketServer.emit(key, {
         message: data
     });
 }

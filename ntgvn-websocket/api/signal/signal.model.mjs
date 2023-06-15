@@ -1,7 +1,7 @@
 import { generateAccessToken } from '../../utils/jwt/jwt.mjs';
 import { emitData } from '../../utils/socket/socket.mjs';
 
-const subscribe = async req => {
+const subscribe = req => {
     try {
         return generateAccessToken(req);
     } catch (_) {
@@ -9,14 +9,11 @@ const subscribe = async req => {
     }
 }
 
-const emit = async req => {
+const emit = req => {
     try {
         const data = req.body.value;
         const key = req.body.key;
-        if (key) {
-            emitData(key, data);
-        }
-        return true;
+        return emitData(key, data);
     } catch (_) {
         return undefined;
     }

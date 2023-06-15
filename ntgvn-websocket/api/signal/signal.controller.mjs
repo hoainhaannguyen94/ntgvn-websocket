@@ -4,16 +4,16 @@ import { resHanlder } from '../../utils/request/res.mjs';
 
 const router = express.Router();
 router
-    .get('/subscribe', async (req, res) => {
-        const result = await subscribe(req);
+    .get('/subscribe', (req, res) => {
+        const result = subscribe(req);
         if (result) {
             resHanlder(req, res, 200, result);
         } else {
             resHanlder(req, res, 400, result);
         }
     })
-    .post('/emit', async (req, res) => {
-        const result = await emit(req);
+    .post('/emit', (req, res) => {
+        const result = emit(req);
         if (result) {
             resHanlder(req, res, 200, result);
         } else {
