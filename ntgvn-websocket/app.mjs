@@ -10,6 +10,7 @@ import { Logger } from './utils/logger/logger.mjs';
 import { PingRouter } from './api/ping/ping.controller.mjs';
 import { SignalRouter } from './api/signal/signal.controller.mjs';
 import { MAX_REQUEST_BODY_SIZE } from './config/request.mjs';
+import { cacheControl } from './middleware/cache-control.mjs';
 
 const __dirname = path.resolve();
 
@@ -24,8 +25,10 @@ app.use(express.text({ limit: MAX_REQUEST_BODY_SIZE }));
 app.use(express.urlencoded({ limit: MAX_REQUEST_BODY_SIZE, extended: true }));
 app.use(helmet());
 app.use(express.static(__dirname + '/public'));
+app.use(cacheControl);
+app.use(domainChecker);
 
-app.use('/websocket/api/v1/ping', rateLimitRequest(), domainChecker, PingRouter);
+app.use('/websocket/api/v1/ping', PingRouter);
 app.use('/websocket/api/v1/signal', rateLimitRequest(), domainChecker, SignalRouter);
 
 app.use('/', (req, res) => {
