@@ -5,8 +5,6 @@
   "description": "NTGVN WebSocket",
   "main": "server.mjs",
   "scripts": {
-    "update-packages": "npm i @steedos/odata-v4-mongodb@latest axios@latest compression@latest cookie-parser@latest cors@latest dotenv@latest express@latest express-rate-limit@latest helmet@latest jsonwebtoken@latest luxon@latest mongodb@latest redis@latest rxjs@latest url@latest winston@latest",
-    "update-packages-d": "npm i -D pm2@latest",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.mjs",
     "docker_network": "docker network create ntgvn-network",
