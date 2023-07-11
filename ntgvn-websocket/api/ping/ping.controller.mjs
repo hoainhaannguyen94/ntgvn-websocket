@@ -1,5 +1,5 @@
 import express from 'express';
-import { resJSON } from '../../utils/request/res.mjs';
+import { resJSON } from '../../utils/request/request.mjs';
 
 const router = express.Router();
 router

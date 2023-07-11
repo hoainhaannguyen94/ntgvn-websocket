@@ -1,6 +1,6 @@
 import express from 'express';
 import { subscribe, emit } from './signal.model.mjs';
-import { resJSON } from '../../utils/request/res.mjs';
+import { resJSON } from '../../utils/request/request.mjs';
 
 const router = express.Router();
 router
